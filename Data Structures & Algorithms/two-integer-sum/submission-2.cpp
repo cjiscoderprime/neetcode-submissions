@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
+
+        for (int i = 0; i < nums.size(); i++) {
+            int diff = target - nums[i];
+            if (numMap.count(diff)) {
+                return {numMap[diff], i};
+            } else {
+                numMap.insert({nums[i], i});
+            }
+        }
+    }
+};
